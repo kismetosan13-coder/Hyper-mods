@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hyper Gaming</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🎮 Hyper Gaming</h1>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#games">Games</a>
+    <a href="#play">Play Now</a>
+    <a href="#news">News</a>
+    <a href="#community">Community</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero" id="home">
+    <h2>Welcome to the Ultimate Gaming Hub!</h2>
+  </section>
+
+  <section class="games" id="games">
+    <h2 class="section-title">Featured Games</h2>
+    <div class="game-card"><img src="images/snake.jpg"><h3>Snake</h3></div>
+    <div class="game-card"><img src="images/tictactoe.jpg"><h3>Tic-Tac-Toe</h3></div>
+    <div class="game-card"><img src="images/flappy.jpg"><h3>Flappy Bird</h3></div>
+    <div class="game-card"><img src="images/pong.jpg"><h3>Pong</h3></div>
+    <div class="game-card"><img src="images/memory.jpg"><h3>Memory Match</h3></div>
+    <div class="game-card"><img src="images/shooter.jpg"><h3>Space Shooter</h3></div>
+  </section>
+
+  <section class="play-section" id="play">
+    <h2 class="section-title">🎯 Play Mini Games</h2>
+    <div class="game-buttons">
+      <button onclick="showGame('snake')">Snake</button>
+      <button onclick="showGame('tictactoe')">Tic-Tac-Toe</button>
+      <button onclick="showGame('flappy')">Flappy Bird</button>
+      <button onclick="showGame('pong')">Pong</button>
+      <button onclick="showGame('memory')">Memory Match</button>
+      <button onclick="showGame('shooter')">Space Shooter</button>
+    </div>
+    <div id="game-area">
+      <!-- Games will appear here -->
+    </div>
+  </section>
+
+  <section class="news" id="news">
+    <h3>📰 Latest News</h3>
+    <p>🔥 Hyper Gaming 2.0 is launching soon with more mini-games and community features!</p>
+  </section>
+
+  <section class="community" id="community">
+    <h3>👥 Join the Community</h3>
+    <p>Connect with gamers worldwide. Share your scores, tips, and game reviews.</p>
+  </section>
+
+  <section class="contact" id="contact">
+    <h3>📩 Contact Us</h3>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="4" placeholder="Your Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Hyper Gaming. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #0d0d0d;
+  color: #fff;
+}
+
+header {
+  background: #111;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #ff4655;
+}
+
+header h1 {
+  color: #ff4655;
+  margin: 0;
+  font-size: 2.5em;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  background: #222;
+  padding: 10px;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+nav a:hover { color: #ff4655; }
+
+.hero {
+  background: url('images/hero.jpg') center/cover no-repeat;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.hero h2 {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 2em;
+  color: #ff4655;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2em;
+  margin: 30px 0 10px;
+  color: #ff4655;
+}
+
+.games {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
+.game-card {
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(255, 70, 85, 0.3);
+  transition: transform 0.3s;
+}
+.game-card:hover { transform: scale(1.05); }
+.game-card img { width: 100%; height: 150px; object-fit: cover; }
+.game-card h3 { padding: 15px; text-align: center; color: #ff4655; }
+
+.play-section { padding: 40px; text-align: center; }
+.game-buttons button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background: #ff4655;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.game-buttons button:hover { background: #e33c4a; }
+
+#game-area {
+  margin-top: 20px;
+}
+canvas {
+  background: #111;
+  border: 2px solid #ff4655;
+  margin-top: 20px;
+}
+
+.news, .community, .contact {
+  padding: 40px;
+  background: #1a1a1a;
+  margin: 20px;
+  border-radius: 10px;
+}
+.news h3, .community h3, .contact h3 { color: #ff4655; }
+
+.contact form { display: flex; flex-direction: column; gap: 10px; }
+.contact input, .contact textarea, .contact button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+.contact button {
+  background: #ff4655;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+.contact button:hover { background: #e33c4a; }
+
+footer {
+  background: #111;
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+  border-top: 2px solid #ff4655;
+}
+
+// Switch Games
+function showGame(game) {
+  const gameArea = document.getElementById("game-area");
+  gameArea.innerHTML = ""; // clear
+
+  if (game === "snake") {
+    gameArea.innerHTML = '<canvas id="snake" width="400" height="400"></canvas>';
+    startSnake();
+  }
+  else if (game === "tictactoe") {
+    gameArea.innerHTML = `
+      <div id="tictactoe">
+        <h3>Tic Tac Toe</h3>
+        <div class="board">
+          <div class="cell" data-index="0"></div>
+          <div class="cell" data-index="1"></div>
+          <div class="cell" data-index="2"></div>
+          <div class="cell" data-index="3"></div>
+          <div class="cell" data-index="4"></div>
+          <div class="cell" data-index="5"></div>
+          <div class="cell" data-index="6"></div>
+          <div class="cell" data-index="7"></div>
+          <div class="cell" data-index="8"></div>
+        </div>
+        <p id="status"></p>
+      </div>
+    `;
+    startTicTacToe();
+  }
+}
+
+// Snake Game
+function startSnake() {
+  const canvas = document.getElementById("snake");
+  const ctx = canvas.getContext("2d");
+  let box = 20;
+  let snake = [{x: 9*box, y: 10*box}];
+  let direction;
+  let food = {
+    x: Math.floor(Math.random()*19+1)*box,
+    y: Math.floor(Math.random()*19+1)*box
+  };
+
+  document.addEventListener("keydown", setDirection);
+  function setDirection(event) {
+    if(event.keyCode == 37 && direction != "RIGHT") direction = "LEFT";
+    else if(event.keyCode == 38 && direction != "DOWN") direction = "UP";
+    else if(event.keyCode == 39 && direction != "LEFT") direction = "RIGHT";
+    else if(event.keyCode == 40 && direction != "UP") direction = "DOWN";
+  }
+
+  function collision(head, array) {
+    for(let i=0; i<array.length; i++) {
+      if(head.x == array[i].x && head.y == array[i].y) return true;
+    }
+    return false;
+  }
+
+  function draw() {
+    ctx.fillStyle = "#000";
+    ctx.fillRect(0,0,400,400);
+
+    for(let i=0;i<snake.length;i++) {
+      ctx.fillStyle = (i==0) ? "#ff4655" : "#fff";
+      ctx.fillRect(snake[i].x,snake[i].y,box,box);
+    }
+    ctx.fillStyle = "#ff4655";
+    ctx.fillRect(food.x,food.y,box,box);
+
+    let snakeX = snake[0].x;
+    let snakeY = snake[0].y;
+
+    if(direction=="LEFT") snakeX-=box;
+    if(direction=="UP") snakeY-=box;
+    if(direction=="RIGHT") snakeX+=box;
+    if(direction=="DOWN") snakeY+=box;
+
+    if(snakeX==food.x && snakeY==food.y) {
+      food = {
+        x: Math.floor(Math.random()*19+1)*box,
+        y: Math.floor(Math.random()*19+1)*box
+      };
+    } else {
+      snake.pop();
+    }
+
+    let newHead = {x:snakeX,y:snakeY};
+
+    if(snakeX<0 || snakeY<0 || snakeX>=400 || snakeY>=400 || collision(newHead,snake)) {
+      clearInterval(game);
+      alert("Game Over! Refresh or click again.");
+    }
+    snake.unshift(newHead);
+  }
+  let game = setInterval(draw,100);
+}
+
+// Tic Tac Toe
+function startTicTacToe() {
+  const cells = document.querySelectorAll(".cell");
+  const status = document.getElementById("status");
+  let currentPlayer = "X";
+  let board = ["","","","","","","","",""];
+
+  cells.forEach(cell => {
+    cell.addEventListener("click", () => {
+      const idx = cell.getAttribute("data-index");
+      if(board[idx]==="") {
+        board[idx]=currentPlayer;
+        cell.textContent=currentPlayer;
+        if(checkWin(currentPlayer)) {
+          status.textContent = currentPlayer + " wins!";
+          cells.forEach(c=>c.style.pointerEvents="none");
+        } else if(board.every(v=>v!=="")) {
+          status.textContent = "Draw!";
+        } else {
+          currentPlayer = (currentPlayer==="X")?"O":"X";
+          status.textContent = currentPlayer + "'s turn";
+        }
+      }
+    });
+  });
+
+  function checkWin(p) {
+    const combos=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+    return combos.some(c=>c.every(i=>board[i]===p));
+  }
+}
